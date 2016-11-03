@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme form ':Form:bootstrap_3_horizontal_layout_improved.html.twig' %}
+
+{% block body %}
+    <h1>User edit</h1>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <a href="{{ path('user_list') }}" class="btn btn-default">Cancel</a>
+        <button type="submit" class="btn btn-default">Save</button>
+    {{ form_end(form) }}
+{% endblock %}

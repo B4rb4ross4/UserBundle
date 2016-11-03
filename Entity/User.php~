@@ -1,0 +1,662 @@
+<?php
+
+namespace UserBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\AdvancedUserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
+
+/**
+ * User
+ *
+ * @ORM\Table(name="app_user")
+ * @ORM\Entity(repositoryClass="UserBundle\Repository\UserRepository")
+ */
+class User implements AdvancedUserInterface
+{
+  /**
+   * @var int
+   *
+   * @ORM\Column(name="id", type="integer")
+   * @ORM\Id
+   * @ORM\GeneratedValue(strategy="AUTO")
+   */
+  private $id;
+
+  /**
+   * @var string
+   *
+   * @ORM\Column(name="username", type="string", length=255, unique=true)
+   */
+  private $username;
+
+  /**
+   * @var string
+   *
+   * @ORM\Column(name="password", type="string", length=255)
+   */
+  private $password;
+
+  /**
+   * @var string
+   *
+   * @ORM\Column(name="email", type="string", length=255, unique=true)
+   */
+  private $email;
+
+  /**
+   * @var bool
+   *
+   * @ORM\Column(name="isActive", type="boolean")
+   */
+  private $isActive = false;
+
+  /**
+   * @var array
+   *
+   * @ORM\Column(name="roles", type="array")
+   */
+  private $roles = array();
+
+  /**
+   * @var \DateTime
+   *
+   * @ORM\Column(name="disabledAt", type="datetime", nullable=true)
+   */
+  private $disabledAt;
+
+  /**
+   * @var bool
+   *
+   * @ORM\Column(name="isExpired", type="boolean")
+   */
+  private $isExpired = false;
+
+  /**
+   * @var \DateTime
+   *
+   * @ORM\Column(name="expiredAt", type="datetime", nullable=true)
+   */
+  private $expiredAt;
+
+  /**
+   * @var string
+   *
+   * @ORM\Column(name="isLocked", type="boolean", length=255)
+   */
+  private $isLocked = false;
+
+  /**
+   * @var \DateTime
+   *
+   * @ORM\Column(name="lockedAt", type="datetime", nullable=true)
+   */
+  private $lockedAt;
+
+  /**
+   * @var bool
+   *
+   * @ORM\Column(name="IsCredentialsExpired", type="boolean")
+   */
+  private $isCredentialsExpired = false;
+
+  /**
+   * @var \DateTime
+   *
+   * @ORM\Column(name="credentialsExpiredAt", type="datetime", nullable=true)
+   */
+  private $credentialsExpiredAt;
+
+  /**
+   * @var \DateTime
+   *
+   * @ORM\Column(name="lastLoginAt", type="datetime", nullable=true)
+   */
+  private $lastLoginAt;
+
+  /**
+   * @var \DateTime
+   *
+   * @ORM\Column(name="registeredAt", type="datetime", nullable=true)
+   */
+  private $registeredAt;
+
+  /**
+   * @var \DateTime
+   *
+   * @ORM\Column(name="updatedAt", type="datetime", nullable=true)
+   */
+  private $updatedAt;
+
+  /**
+   * @var int
+   *
+   * @ORM\Column(name="loginAttempts", type="integer")
+   */
+  private $loginAttempts = 0;
+
+  /**
+   * @var \DateTime
+   *
+   * @ORM\Column(name="lastLoginAttempt", type="datetime", nullable=true)
+   */
+  private $lastLoginAttempt;
+
+  /**
+   * @Assert\NotBlank()
+   * @Assert\Length(max=4096)
+   */
+  private $plainPassword;
+
+
+  /**
+   * Get id
+   *
+   * @return int
+   */
+  public function getId()
+  {
+    return $this->id;
+  }
+
+  /**
+   * Set username
+   *
+   * @param string $username
+   *
+   * @return User
+   */
+  public function setUsername($username)
+  {
+    $this->username = $username;
+
+    return $this;
+  }
+
+  /**
+   * Get username
+   *
+   * @return string
+   */
+  public function getUsername()
+  {
+    return $this->username;
+  }
+
+  /**
+   * Set password
+   *
+   * @param string $password
+   *
+   * @return User
+   */
+  public function setPassword($password)
+  {
+    $this->password = $password;
+
+    return $this;
+  }
+
+  /**
+   * Get password
+   *
+   * @return string
+   */
+  public function getPassword()
+  {
+    return $this->password;
+  }
+
+  /**
+   * Get plain password
+   *
+   * @return string
+   */
+  public function getPlainPassword()
+  {
+    return $this->plainPassword;
+  }
+
+  /**
+   * Set plain password
+   *
+   * @param string $password
+   *
+   * @return User
+   */
+  public function setPlainPassword($password)
+  {
+    $this->plainPassword = $password;
+  }
+
+  /**
+   * Set email
+   *
+   * @param string $email
+   *
+   * @return User
+   */
+  public function setEmail($email)
+  {
+    $this->email = $email;
+
+    return $this;
+  }
+
+  /**
+   * Get email
+   *
+   * @return string
+   */
+  public function getEmail()
+  {
+    return $this->email;
+  }
+
+  /**
+   * Set isActive
+   *
+   * @param bool $isActive
+   *
+   * @return User
+   */
+  public function setIsActive($isActive)
+  {
+    $this->isActive = $isActive;
+
+    return $this;
+  }
+
+  /**
+   * Get isActive
+   *
+   * @return bool
+   */
+  public function getIsActive()
+  {
+    return $this->isActive;
+  }
+
+  /**
+   * Set isExpired
+   *
+   * @param bool $isExpired
+   *
+   * @return User
+   */
+  public function setIsExpired($isExpired)
+  {
+    $this->isExpired = $isExpired;
+
+    return $this;
+  }
+
+  /**
+   * Get isExpired
+   *
+   * @return bool
+   */
+  public function getIsExpired()
+  {
+    return $this->isExpired;
+  }
+
+  /**
+   * Set isLocked
+   *
+   * @param string $isLocked
+   *
+   * @return User
+   */
+  public function setIsLocked($isLocked)
+  {
+    $this->isLocked = $isLocked;
+
+    return $this;
+  }
+
+  /**
+   * Get isLocked
+   *
+   * @return string
+   */
+  public function getIsLocked()
+  {
+    return $this->isLocked;
+  }
+
+  /**
+   * Set isCredentialsExpired
+   *
+   * @param bool $isCredentialsExpired
+   *
+   * @return User
+   */
+  public function setIsCredentialsExpired($isCredentialsExpired)
+  {
+    $this->isCredentialsExpired = $isCredentialsExpired;
+
+    return $this;
+  }
+
+  /**
+   * Get isCredentialsExpired
+   *
+   * @return bool
+   */
+  public function getIsCredentialsExpired()
+  {
+    return $this->isCredentialsExpired;
+  }
+
+  /**
+   * Set lastLoginAt
+   *
+   * @param \DateTime $lastLoginAt
+   *
+   * @return User
+   */
+  public function setLastLoginAt($lastLoginAt)
+  {
+    $this->lastLoginAt = $lastLoginAt;
+
+    return $this;
+  }
+
+  /**
+   * Get lastLoginAt
+   *
+   * @return \DateTime
+   */
+  public function getLastLoginAt()
+  {
+    return $this->lastLoginAt;
+  }
+
+  /**
+   * Set registeredAt
+   *
+   * @param \DateTime $registeredAt
+   *
+   * @return User
+   */
+  public function setRegisteredAt($registeredAt)
+  {
+    $this->registeredAt = $registeredAt;
+
+    return $this;
+  }
+
+  /**
+   * Get registeredAt
+   *
+   * @return \DateTime
+   */
+  public function getRegisteredAt()
+  {
+    return $this->registeredAt;
+  }
+
+  /**
+   * Set loginAttempts
+   *
+   * @param int $loginAttempts
+   *
+   * @return User
+   */
+  public function setLoginAttempts($loginAttempts)
+  {
+    $this->loginAttempts = $loginAttempts;
+
+    return $this;
+  }
+
+  /**
+   * Get loginAttempts
+   *
+   * @return int
+   */
+  public function getLoginAttempts()
+  {
+    return $this->loginAttempts;
+  }
+
+  /**
+   * Set lastLoginAttempt
+   *
+   * @param \DateTime $lastLoginAttempt
+   *
+   * @return User
+   */
+  public function setLastLoginAttempt($lastLoginAttempt)
+  {
+    $this->lastLoginAttempt = $lastLoginAttempt;
+
+    return $this;
+  }
+
+  /**
+   * Get lastLoginAttempt
+   *
+   * @return \DateTime
+   */
+  public function getLastLoginAttempt()
+  {
+    return $this->lastLoginAttempt;
+  }
+
+  /**
+   * Set disabledAt
+   *
+   * @param \DateTime $disabledAt
+   *
+   * @return User
+   */
+  public function setDisabledAt($disabledAt)
+  {
+    $this->disabledAt = $disabledAt;
+
+    return $this;
+  }
+
+  /**
+   * Get disabledAt
+   *
+   * @return \DateTime
+   */
+  public function getDisabledAt()
+  {
+    return $this->disabledAt;
+  }
+
+  /**
+   * Set lockedAt
+   *
+   * @param \DateTime $lockedAt
+   *
+   * @return User
+   */
+  public function setLockedAt($lockedAt)
+  {
+    $this->lockedAt = $lockedAt;
+
+    return $this;
+  }
+
+  /**
+   * Get lockedAt
+   *
+   * @return \DateTime
+   */
+  public function getLockedAt()
+  {
+    return $this->lockedAt;
+  }
+
+    /**
+     * Set updatedAt
+     *
+     * @param \DateTime $updatedAt
+     *
+     * @return User
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get updatedAt
+     *
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * Set expiredAt
+     *
+     * @param \DateTime $expiredAt
+     *
+     * @return User
+     */
+    public function setExpiredAt($expiredAt)
+    {
+        $this->expiredAt = $expiredAt;
+
+        return $this;
+    }
+
+    /**
+     * Get expiredAt
+     *
+     * @return \DateTime
+     */
+    public function getExpiredAt()
+    {
+        return $this->expiredAt;
+    }
+
+    /**
+     * Set credentialsExpiredAt
+     *
+     * @param \DateTime $credentialsExpiredAt
+     *
+     * @return User
+     */
+    public function setCredentialsExpiredAt($credentialsExpiredAt)
+    {
+        $this->credentialsExpiredAt = $credentialsExpiredAt;
+
+        return $this;
+    }
+
+    /**
+     * Get credentialsExpiredAt
+     *
+     * @return \DateTime
+     */
+    public function getCredentialsExpiredAt()
+    {
+        return $this->credentialsExpiredAt;
+    }
+
+    public function isAccountNonExpired()
+    {
+      return $this->isExpired;
+    }
+
+    public function isAccountNonLocked()
+    {
+      return $this->isLocked;
+    }
+
+    public function isCredentialsNonExpired()
+    {
+      return $this->isCredentialsExpired;
+    }
+
+    public function isEnabled()
+    {
+      return $this->isActive;
+    }
+
+    /**
+     * @return array
+     */
+    public function getRoles()
+    {
+      return $this->roles;
+    }
+
+    public function getSalt()
+    {
+      return bin2hex(openssl_random_pseudo_bytes(16));
+    }
+
+    public function eraseCredentials()
+    {
+      // TODO: Implement eraseCredentials() method.
+    }
+
+    public function serialize()
+    {
+      return serialize(array(
+                         $this->id,
+                         $this->username,
+                         $this->password,
+                         $this->isActive
+                         // see section on salt below
+                         // $this->salt,
+                       ));
+    }
+
+    /** @see \Serializable::unserialize() */
+    public function unserialize($serialized)
+    {
+      list (
+        $this->id,
+        $this->username,
+        $this->password,
+        $this->isActive
+        // see section on salt below
+        // $this->salt
+        ) = unserialize($serialized);
+  }
+
+    /**
+     * Set roles
+     *
+     * @param array $roles
+     *
+     * @return User
+     */
+    public function setRoles(array $roles)
+    {
+        $this->roles = $roles;
+
+        return $this;
+    }
+
+    /**
+     * Give the user a role
+     *
+     * @param $role
+     *
+     * @return User
+     */
+    public function addRole($role)
+    {
+
+      if(!in_array($role, $this->roles))
+      {
+        $this->roles[] = $role;
+      }
+
+      return $this;
+    }
+}
