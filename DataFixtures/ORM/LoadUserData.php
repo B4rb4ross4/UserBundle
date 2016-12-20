@@ -9,7 +9,7 @@ use UserBundle\Entity\User;
 
 /**
  * Class LoadUserData
- * @author Sven Lütje <sluetje@eos-uptrade.de>
+ * @author Sven Lütje <sven.luetje@googlemail.com>
  */
 class LoadUserData implements FixtureInterface, ContainerAwareInterface
 {

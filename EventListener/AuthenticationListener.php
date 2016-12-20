@@ -12,7 +12,7 @@ use UserBundle\Repository\UserRepository;
 
 /**
  * Class AuthenticationListener
- * @author Sven Lütje <sluetje@eos-uptrade.de>
+ * @author Sven Lütje <sven.luetje@googlemail.com>
  */
 class AuthenticationListener implements EventSubscriberInterface
 {
