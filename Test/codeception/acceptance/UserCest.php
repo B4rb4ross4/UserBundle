@@ -1,7 +1,5 @@
 <?php
-namespace UserBundle;
-
-use UserBundle\AcceptanceTester;
+namespace B4rb4ross4\Bundle\UserBundle\Test;
 
 class UserCest
 {

@@ -1,5 +1,5 @@
 <?php
-namespace UserBundle\Controller;
+namespace B4rb4ross4\Bundle\UserBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;

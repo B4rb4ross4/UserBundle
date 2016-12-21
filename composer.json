@@ -18,5 +18,11 @@
             "name": "Sven Lütje",
             "email": "sven.luetje@googlemail.com"
         }
-    ]
+    ],
+    "autoload": {
+        "psr-4": { "B4rb4ross4\\Bundle\\UserBundle\\": "" },
+        "exclude-from-classmap": [
+            "/Tests/"
+        ]
+    }
 }

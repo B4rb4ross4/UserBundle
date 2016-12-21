@@ -1,7 +1,7 @@
 class_name: AcceptanceTester
 modules:
     enabled:
-        - \UserBundle\Helper\Acceptance
+        - \B4rb4ross4\Bundle\UserBundle\Test\Helper\Acceptance
         - WebDriver:
             url: 'http://fiffi.local/app_dev.php/' # put your local url
             browser: firefox
