@@ -79,7 +79,7 @@ class User implements AdvancedUserInterface
   private $expiredAt;
 
   /**
-   * @var string
+   * @var bool
    *
    * @ORM\Column(name="isLocked", type="boolean", length=255)
    */
@@ -152,7 +152,7 @@ class User implements AdvancedUserInterface
    *
    * @return int
    */
-  public function getId()
+  public function getId() : int
   {
     return $this->id;
   }
@@ -176,7 +176,7 @@ class User implements AdvancedUserInterface
    *
    * @return string
    */
-  public function getUsername()
+  public function getUsername() : string
   {
     return $this->username;
   }
@@ -200,7 +200,7 @@ class User implements AdvancedUserInterface
    *
    * @return string
    */
-  public function getPassword()
+  public function getPassword() : string
   {
     return $this->password;
   }
@@ -210,7 +210,7 @@ class User implements AdvancedUserInterface
    *
    * @return string
    */
-  public function getPlainPassword()
+  public function getPlainPassword() : string
   {
     return $this->plainPassword;
   }
@@ -246,7 +246,7 @@ class User implements AdvancedUserInterface
    *
    * @return string
    */
-  public function getEmail()
+  public function getEmail() : string
   {
     return $this->email;
   }
@@ -270,7 +270,7 @@ class User implements AdvancedUserInterface
    *
    * @return bool
    */
-  public function getIsActive()
+  public function getIsActive() : bool
   {
     return $this->isActive;
   }
@@ -294,7 +294,7 @@ class User implements AdvancedUserInterface
    *
    * @return bool
    */
-  public function getIsExpired()
+  public function getIsExpired() : bool
   {
     return $this->isExpired;
   }
@@ -316,9 +316,9 @@ class User implements AdvancedUserInterface
   /**
    * Get isLocked
    *
-   * @return string
+   * @return bool
    */
-  public function getIsLocked()
+  public function getIsLocked() : bool
   {
     return $this->isLocked;
   }
@@ -342,7 +342,7 @@ class User implements AdvancedUserInterface
    *
    * @return bool
    */
-  public function getIsCredentialsExpired()
+  public function getIsCredentialsExpired() : bool
   {
     return $this->isCredentialsExpired;
   }
@@ -366,7 +366,7 @@ class User implements AdvancedUserInterface
    *
    * @return \DateTime
    */
-  public function getLastLoginAt()
+  public function getLastLoginAt() : \DateTime
   {
     return $this->lastLoginAt;
   }
@@ -390,7 +390,7 @@ class User implements AdvancedUserInterface
    *
    * @return \DateTime
    */
-  public function getRegisteredAt()
+  public function getRegisteredAt() : \DateTime
   {
     return $this->registeredAt;
   }
@@ -414,7 +414,7 @@ class User implements AdvancedUserInterface
    *
    * @return int
    */
-  public function getLoginAttempts()
+  public function getLoginAttempts() : int
   {
     return $this->loginAttempts;
   }
@@ -438,7 +438,7 @@ class User implements AdvancedUserInterface
    *
    * @return \DateTime
    */
-  public function getLastLoginAttempt()
+  public function getLastLoginAttempt() : \DateTime
   {
     return $this->lastLoginAttempt;
   }
@@ -462,7 +462,7 @@ class User implements AdvancedUserInterface
    *
    * @return \DateTime
    */
-  public function getDisabledAt()
+  public function getDisabledAt() : \DateTime
   {
     return $this->disabledAt;
   }
@@ -486,7 +486,7 @@ class User implements AdvancedUserInterface
    *
    * @return \DateTime
    */
-  public function getLockedAt()
+  public function getLockedAt() : \DateTime
   {
     return $this->lockedAt;
   }
@@ -510,7 +510,7 @@ class User implements AdvancedUserInterface
      *
      * @return \DateTime
      */
-    public function getUpdatedAt()
+    public function getUpdatedAt() : \DateTime
     {
         return $this->updatedAt;
     }
@@ -534,7 +534,7 @@ class User implements AdvancedUserInterface
      *
      * @return \DateTime
      */
-    public function getExpiredAt()
+    public function getExpiredAt() : \DateTime
     {
         return $this->expiredAt;
     }
@@ -558,27 +558,27 @@ class User implements AdvancedUserInterface
      *
      * @return \DateTime
      */
-    public function getCredentialsExpiredAt()
+    public function getCredentialsExpiredAt() : \DateTime
     {
         return $this->credentialsExpiredAt;
     }
 
-    public function isAccountNonExpired()
+    public function isAccountNonExpired() : bool
     {
       return !$this->isExpired;
     }
 
-    public function isAccountNonLocked()
+    public function isAccountNonLocked() : bool
     {
       return !$this->isLocked;
     }
 
-    public function isCredentialsNonExpired()
+    public function isCredentialsNonExpired() : bool
     {
       return !$this->isCredentialsExpired;
     }
 
-    public function isEnabled()
+    public function isEnabled() : bool
     {
       return $this->isActive;
     }
@@ -586,22 +586,25 @@ class User implements AdvancedUserInterface
     /**
      * @return array
      */
-    public function getRoles()
+    public function getRoles() : array
     {
       return $this->roles;
     }
 
-    public function getSalt()
+    public function getSalt() : string
     {
       return bin2hex(openssl_random_pseudo_bytes(16));
     }
 
-    public function eraseCredentials()
+    /**
+     * @inheritdoc
+     */
+    public function eraseCredentials() : void
     {
       // TODO: Implement eraseCredentials() method.
     }
 
-    public function serialize()
+    public function serialize() : string
     {
       return serialize(array(
                          $this->id,
@@ -613,8 +616,10 @@ class User implements AdvancedUserInterface
                        ));
     }
 
-    /** @see \Serializable::unserialize() */
-    public function unserialize($serialized)
+    /**
+     * @see \Serializable::unserialize()
+     */
+    public function unserialize(string $serialized) : User
     {
       list (
         $this->id,
@@ -624,6 +629,8 @@ class User implements AdvancedUserInterface
         // see section on salt below
         // $this->salt
         ) = unserialize($serialized);
+
+        return $this;
   }
 
     /**
@@ -647,7 +654,7 @@ class User implements AdvancedUserInterface
      *
      * @return User
      */
-    public function addRole($role)
+    public function addRole(string $role) : User
     {
 
       if(!in_array($role, $this->roles))
