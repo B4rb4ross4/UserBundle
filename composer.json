@@ -3,7 +3,7 @@
     "description": "A bundle providing functionality for user handling of an symfony application",
     "type": "library",
     "require": {
-        "php": "^7.0"
+        "php": "^7.1"
     },
     "require-dev": {
         "codeception/codeception": "^2.2",
