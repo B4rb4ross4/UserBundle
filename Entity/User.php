@@ -27,21 +27,21 @@ class User implements AdvancedUserInterface
    *
    * @ORM\Column(name="username", type="string", length=255, unique=true)
    */
-  private $username;
+  private $username = '';
 
   /**
    * @var string
    *
    * @ORM\Column(name="password", type="string", length=255)
    */
-  private $password;
+  private $password = '';
 
   /**
    * @var string
    *
    * @ORM\Column(name="email", type="string", length=255, unique=true)
    */
-  private $email;
+  private $email = '';
 
   /**
    * @var bool
@@ -144,15 +144,15 @@ class User implements AdvancedUserInterface
   /**
    * @Assert\Length(max=4096)
    */
-  private $plainPassword;
+  private $plainPassword = '';
 
 
   /**
    * Get id
    *
-   * @return int
+   * @return int|null
    */
-  public function getId() : int
+  public function getId() : ?int
   {
     return $this->id;
   }
@@ -364,9 +364,9 @@ class User implements AdvancedUserInterface
   /**
    * Get lastLoginAt
    *
-   * @return \DateTime
+   * @return \DateTime|null
    */
-  public function getLastLoginAt() : \DateTime
+  public function getLastLoginAt() : ?\DateTime
   {
     return $this->lastLoginAt;
   }
@@ -388,9 +388,9 @@ class User implements AdvancedUserInterface
   /**
    * Get registeredAt
    *
-   * @return \DateTime
+   * @return \DateTime|null
    */
-  public function getRegisteredAt() : \DateTime
+  public function getRegisteredAt() : ?\DateTime
   {
     return $this->registeredAt;
   }
@@ -436,9 +436,9 @@ class User implements AdvancedUserInterface
   /**
    * Get lastLoginAttempt
    *
-   * @return \DateTime
+   * @return \DateTime|null
    */
-  public function getLastLoginAttempt() : \DateTime
+  public function getLastLoginAttempt() : ?\DateTime
   {
     return $this->lastLoginAttempt;
   }
@@ -460,9 +460,9 @@ class User implements AdvancedUserInterface
   /**
    * Get disabledAt
    *
-   * @return \DateTime
+   * @return \DateTime|null
    */
-  public function getDisabledAt() : \DateTime
+  public function getDisabledAt() : ?\DateTime
   {
     return $this->disabledAt;
   }
@@ -484,9 +484,9 @@ class User implements AdvancedUserInterface
   /**
    * Get lockedAt
    *
-   * @return \DateTime
+   * @return \DateTime|null
    */
-  public function getLockedAt() : \DateTime
+  public function getLockedAt() : ?\DateTime
   {
     return $this->lockedAt;
   }
@@ -508,9 +508,9 @@ class User implements AdvancedUserInterface
     /**
      * Get updatedAt
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
-    public function getUpdatedAt() : \DateTime
+    public function getUpdatedAt() : ?\DateTime
     {
         return $this->updatedAt;
     }
@@ -532,9 +532,9 @@ class User implements AdvancedUserInterface
     /**
      * Get expiredAt
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
-    public function getExpiredAt() : \DateTime
+    public function getExpiredAt() : ?\DateTime
     {
         return $this->expiredAt;
     }
@@ -556,9 +556,9 @@ class User implements AdvancedUserInterface
     /**
      * Get credentialsExpiredAt
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
-    public function getCredentialsExpiredAt() : \DateTime
+    public function getCredentialsExpiredAt() : ?\DateTime
     {
         return $this->credentialsExpiredAt;
     }

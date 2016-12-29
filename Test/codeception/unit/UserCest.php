@@ -19,9 +19,9 @@ class UserCest
         $user = new User();
 
         $I->assertNull($user->getId());
-        $I->assertNull($user->getUsername());
-        $I->assertNull($user->getPassword());
-        $I->assertNull($user->getEmail());
+        $I->assertEquals('', $user->getUsername());
+        $I->assertEquals('', $user->getPassword());
+        $I->assertEquals('', $user->getEmail());
         $I->assertFalse($user->getIsActive());
         $I->assertEquals([], $user->getRoles());
         $I->assertNull($user->getDisabledAt());
@@ -36,6 +36,6 @@ class UserCest
         $I->assertNull($user->getUpdatedAt());
         $I->assertEquals(0, $user->getLoginAttempts());
         $I->assertNull($user->getLastLoginAttempt());
-        $I->assertNull($user->getPlainPassword());
+        $I->assertEmpty('', $user->getPlainPassword());
     }
 }
