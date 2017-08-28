@@ -1,7 +1,7 @@
 {
     "name": "b4rb4ross4/symfony-user-bundle",
     "description": "A bundle providing functionality for user handling of an symfony application",
-    "type": "library",
+    "type": "symfony-bundle",
     "require": {
         "php": "^7.1"
     },
@@ -16,13 +16,13 @@
     "authors": [
         {
             "name": "Sven Lütje",
-            "email": "sven.luetje@googlemail.com"
+            "email": "b4rb4rossa@posteo.de"
         }
     ],
     "autoload": {
-        "psr-4": { "B4rb4ross4\\Bundle\\UserBundle\\": "" },
+        "psr-4": { "B4rb4ross4\\UserBundle\\": "" },
         "exclude-from-classmap": [
-            "/Tests/"
+            "Test/"
         ]
     }
 }
