@@ -1,5 +1,5 @@
 <?php
-namespace B4rb4ross4\Bundle\UserBundle\EventListener;
+namespace B4rb4ross4\UserBundle\EventListener;
 
 use Symfony\Component\DependencyInjection\Container;
 use Symfony\Component\Security\Core\AuthenticationEvents;

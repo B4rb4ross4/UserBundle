@@ -1,11 +1,11 @@
 <?php
-namespace B4rb4ross4\Bundle\UserBundle\DataFixtures\ORM;
+namespace B4rb4ross4\UserBundle\DataFixtures\ORM;
 
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use B4rb4ross4\Bundle\UserBundle\Entity\User;
+use B4rb4ross4\UserBundle\Entity\User;
 
 /**
  * Class LoadUserData

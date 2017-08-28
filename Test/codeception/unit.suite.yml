@@ -1,5 +1,5 @@
 class_name: UnitTester
 modules:
     enabled:
-        - \B4rb4ross4\Bundle\UserBundle\Test\Helper\Unit
+        - \B4rb4ross4\UserBundle\Test\Helper\Unit
         - Asserts

@@ -1,6 +1,6 @@
 <?php
-namespace B4rb4ross4\Bundle\UserBundle\Test;
-use B4rb4ross4\Bundle\UserBundle\Entity\User;
+namespace B4rb4ross4\UserBundle\Test;
+use B4rb4ross4\UserBundle\Entity\User;
 
 class UserCest
 {

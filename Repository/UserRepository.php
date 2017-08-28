@@ -1,5 +1,5 @@
 <?php
-namespace B4rb4ross4\Bundle\UserBundle\Repository;
+namespace B4rb4ross4\UserBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Security\User\UserLoaderInterface;

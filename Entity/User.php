@@ -1,5 +1,5 @@
 <?php
-namespace B4rb4ross4\Bundle\UserBundle\Entity;
+namespace B4rb4ross4\UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\AdvancedUserInterface;

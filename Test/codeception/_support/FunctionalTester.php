@@ -1,5 +1,5 @@
 <?php
-namespace B4rb4ross4\Bundle\UserBundle\Test;
+namespace B4rb4ross4\UserBundle\Test;
 
 /**
  * Inherited Methods
