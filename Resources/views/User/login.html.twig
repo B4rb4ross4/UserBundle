@@ -11,7 +11,7 @@ Fahrinfo Server Backend - Login
         {% if error %}
             <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
         {% endif %}
-        <form action="{{ path('login') }}" method="post">
+        <form action="{{ path('b4rb4ross4_user_login') }}" method="post">
 
             <div class="form-group">
                 <label for="username">Username:</label>
