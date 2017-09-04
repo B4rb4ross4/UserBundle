@@ -28,7 +28,7 @@ class UserController extends Controller
 
     $users = $em->getRepository('UserBundle:User')->findAll();
 
-    return $this->render('UserBundle:User:index.html.twig', array(
+    return $this->render('B4rb4ross4UserBundle:User:index.html.twig', array(
       'users' => $users,
     ));
   }
@@ -67,7 +67,7 @@ class UserController extends Controller
       return $this->redirectToRoute('user_show', array('id' => $user->getId()));
     }
 
-    return $this->render('UserBundle:User:register.html.twig', array(
+    return $this->render('B4rb4ross4UserBundle:User:register.html.twig', array(
       'user' => $user,
       'form' => $form->createView(),
     ));
@@ -85,7 +85,7 @@ class UserController extends Controller
 
     $user = $this->getUser();
 
-    return $this->render('UserBundle:User:show.html.twig', array(
+    return $this->render('B4rb4ross4UserBundle:User:show.html.twig', array(
       'user' => $user
     ));
   }
@@ -100,7 +100,7 @@ class UserController extends Controller
   {
     $this->denyAccessUnlessGranted('ROLE_ADMIN');
 
-    return $this->render('UserBundle:User:show.html.twig', array(
+    return $this->render('B4rb4ross4UserBundle:User:show.html.twig', array(
       'user' => $user
     ));
   }
@@ -133,7 +133,7 @@ class UserController extends Controller
       return $this->redirectToRoute('user_show', array('id' => $user->getId()));
     }
 
-    return $this->render('UserBundle:User:edit.html.twig', array(
+    return $this->render('B4rb4ross4UserBundle:User:edit.html.twig', array(
       'user' => $user,
       'form' => $form->createView(),
     ));
@@ -178,7 +178,7 @@ class UserController extends Controller
     $lastUsername = $authenticationUtils->getLastUsername();
 
     return $this->render(
-      'UserBundle:User:login.html.twig',
+      'B4rb4ross4UserBundle:User:login.html.twig',
       array(
         // last username entered by the user
         'last_username' => $lastUsername,
