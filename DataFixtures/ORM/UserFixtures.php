@@ -1,6 +1,7 @@
 <?php
 namespace B4rb4ross4\UserBundle\DataFixtures\ORM;
 
+use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
@@ -8,10 +9,10 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 use B4rb4ross4\UserBundle\Entity\User;
 
 /**
- * Class LoadUserData
+ * Class UserFixtures
  * @author Sven Lütje <sven.luetje@googlemail.com>
  */
-class LoadUserData implements FixtureInterface, ContainerAwareInterface
+class UserFixtures extends AbstractFixture implements FixtureInterface, ContainerAwareInterface
 {
 
   /**
@@ -27,20 +28,22 @@ class LoadUserData implements FixtureInterface, ContainerAwareInterface
   public function load(ObjectManager $manager)
   {
     //Create super admin
-    $userAdmin = new User();
-    $userAdmin->setUsername('admin');
-    $userAdmin->setEmail('test@test.de');
+    $superAdmin = new User();
+    $superAdmin->setUsername('superadmin');
+    $superAdmin->setEmail('test@test.de');
 
     $password = $this->container->get('security.password_encoder')
-                     ->encodePassword($userAdmin, 'test');
-    $userAdmin->setPassword($password);
+                     ->encodePassword($superAdmin, 'test');
+    $superAdmin->setPassword($password);
 
-    $userAdmin->setRegisteredAt(new \DateTime());
-    $userAdmin->setIsActive(true);
-    $userAdmin->addRole('ROLE_USER');
-    $userAdmin->addRole('ROLE_SUPER_ADMIN');
+    $superAdmin->setRegisteredAt(new \DateTime());
+    $superAdmin->setIsActive(true);
+    $superAdmin->addRole('ROLE_USER');
+    $superAdmin->addRole('ROLE_SUPER_ADMIN');
 
-    $manager->persist($userAdmin);
+    $manager->persist($superAdmin);
     $manager->flush();
+
+    $this->addReference('superadmin', $superAdmin);
   }
 }
