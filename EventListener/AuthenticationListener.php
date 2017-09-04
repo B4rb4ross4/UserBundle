@@ -7,8 +7,8 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Security\Core\Event\AuthenticationFailureEvent;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Http\Event\InteractiveLoginEvent;
-use UserBundle\Entity\User;
-use UserBundle\Repository\UserRepository;
+use B4rb4ross4\UserBundle\Entity\User;
+use B4rb4ross4\UserBundle\Repository\UserRepository;
 
 /**
  * Class AuthenticationListener
@@ -47,8 +47,8 @@ class AuthenticationListener implements EventSubscriberInterface
   {
     $token = $event->getAuthenticationToken();
 
-    /** @var \UserBundle\Entity\User $user */
-    $userName=  $token->getUsername();
+    /** @var User $user */
+    $userName = $token->getUsername();
 
     $em=$this->container->get('doctrine.orm.entity_manager');
     /** @var UserRepository $repo */
@@ -76,7 +76,7 @@ class AuthenticationListener implements EventSubscriberInterface
   {
     $token = $event->getAuthenticationToken();
 
-    /** @var \UserBundle\Entity\User $user */
+    /** @var User $user */
     $user=$token->getUser();
 
     if($user instanceof UserInterface)
