@@ -1,11 +1,11 @@
 <?php
 namespace B4rb4ross4\UserBundle\Controller;
 
+use B4rb4ross4\UserBundle\Entity\User;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use UserBundle\Entity\User;
 use UserBundle\Form\UserType;
 
 /**
@@ -17,7 +17,7 @@ class UserController extends Controller
   /**
    * Lists all User entities.
    *
-   * @Route("/users", name="user_list")
+   * @Route("/users", name="b4rb4ross4_user_list")
    * @Method("GET")
    */
   public function indexAction()
@@ -36,7 +36,7 @@ class UserController extends Controller
   /**
    * Creates a new User entity.
    *
-   * @Route("/user/register", name="user_register")
+   * @Route("/user/register", name="b4rb4ross4_user_register")
    * @Method({"GET", "POST"})
    */
   public function newAction(Request $request)
@@ -76,7 +76,7 @@ class UserController extends Controller
   /**
    * Finds and displays the User entity of the currently logged in User.
    *
-   * @Route("/user/profile", name="user_profile")
+   * @Route("/user/profile", name="b4rb4ross4_user_profile")
    * @Method("GET")
    */
   public function profileAction(Request $request)
@@ -93,7 +93,7 @@ class UserController extends Controller
   /**
    * Finds and displays a User entity.
    *
-   * @Route("/user/{id}", name="user_show")
+   * @Route("/user/{id}", name="b4rb4ross4_user_show")
    * @Method("GET")
    */
   public function showAction(User $user)
@@ -108,7 +108,7 @@ class UserController extends Controller
   /**
    * Displays a form to edit an existing User entity.
    *
-   * @Route("/user/{id}/edit", name="user_edit")
+   * @Route("/user/{id}/edit", name="b4rb4ross4_user_edit")
    * @Method({"GET", "POST"})
    */
   public function editAction(Request $request, User $user)
@@ -142,7 +142,7 @@ class UserController extends Controller
   /**
    * Deletes a User entity.
    *
-   * @Route("/user/{id}", name="user_delete")
+   * @Route("/user/{id}", name="b4rb4ross4_user_delete")
    * @Method("DELETE")
    */
   public function deleteAction(Request $request, User $user)
@@ -164,7 +164,7 @@ class UserController extends Controller
   /**
    * Log a user in
    *
-   * @Route("/login", name="login")
+   * @Route("/login", name="b4rb4ross4_user_login")
    * @Method({"GET", "POST"})
    */
   public function loginAction(Request $request)
@@ -190,7 +190,7 @@ class UserController extends Controller
   /**
    * Log a user out
    *
-   * @Route("/logout", name="logout")
+   * @Route("/logout", name="b4rb4ross4_user_logout")
    * @Method({"GET"})
    */
   public function logoutAction(Request $request)
