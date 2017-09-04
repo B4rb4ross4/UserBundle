@@ -51,7 +51,7 @@ Add the routes to your `app/config/routing.yml`:
 
 ```yaml
 b4rb4ross4_user:
-    resource: '@B4rb4ross4UserBundle/UserBundle/Controller/'
+    resource: '@B4rb4ross4UserBundle/Controller/'
     type:     annotation
 ```
 
