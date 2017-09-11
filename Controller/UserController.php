@@ -169,6 +169,7 @@ class UserController extends Controller
    */
   public function loginAction(Request $request)
   {
+    /** @var \Symfony\Component\Security\Http\Authentication\AuthenticationUtils $authenticationUtils */
     $authenticationUtils = $this->get('security.authentication_utils');
 
     // get the login error if there is one
@@ -177,12 +178,16 @@ class UserController extends Controller
     // last username entered by the user
     $lastUsername = $authenticationUtils->getLastUsername();
 
+    if(!empty($error))
+    {
+      $request->getSession()->setFlash('error', $error->getMessage());
+    }
+
     return $this->render(
       'B4rb4ross4UserBundle:User:login.html.twig',
       array(
         // last username entered by the user
         'last_username' => $lastUsername,
-        'error'         => $error,
       )
     );
   }
