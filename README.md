@@ -55,36 +55,50 @@ b4rb4ross4_user:
     type:     annotation
 ```
 
-At last you must change `your app/config/security.yml` settings:
+At last you must change your `app/config/security.yml` settings:
 
 ```yaml
 firewalls:
-        secured_area:
-            # this firewall applies to all URLs
-            pattern: ^/
+    secured_area:
+        # this firewall applies to all URLs
+        pattern: ^/
 
-            # but the firewall does not require login on every page
-            # denying access is done in access_control or in your controllers
-            anonymous: true
+        # but the firewall does not require login on every page
+        # denying access is done in access_control or in your controllers
+        anonymous: ~
 
-            # This allows the user to login by submitting a username and password
-            # Reference: https://symfony.com/doc/current/security/form_login_setup.html
-            form_login:
-                # The route name that the login form submits to
-                check_path: b4rb4ross4_user_login
-                # The name of the route where the login form lives
-                # When the user tries to access a protected page, they are redirected here
-                login_path: b4rb4ross4_user_login
-                # Secure the login form against CSRF
-                # Reference: https://symfony.com/doc/current/security/csrf_in_login_form.html
-                csrf_token_generator: security.csrf.token_manager
-                # The page users are redirect to when there is no previous page stored in the
-                # session (for example when the users access directly to the login page).
-                default_target_path: default_route_name
+        # This allows the user to login by submitting a username and password
+        # Reference: https://symfony.com/doc/current/security/form_login_setup.html
+        form_login:
+            # The route name that the login form submits to
+            check_path: b4rb4ross4_user_login
+            # The name of the route where the login form lives
+            # When the user tries to access a protected page, they are redirected here
+            login_path: b4rb4ross4_user_login
+            # Secure the login form against CSRF
+            # Reference: https://symfony.com/doc/current/security/csrf_in_login_form.html
+            csrf_token_generator: security.csrf.token_manager
+            # The page users are redirect to when there is no previous page stored in the
+            # session (for example when the users access directly to the login page).
+            default_target_path: default_route_name
 
-            logout:
-                # The route name the user can go to in order to logout
-                path: b4rb4ross4_user_logout
-                # The name of the route to redirect to after logging out
-                target: default_route_name
+        logout:
+            # The route name the user can go to in order to logout
+            path: b4rb4ross4_user_logout
+            # The name of the route to redirect to after logging out
+            target: default_route_name
+```
+
+Set the base view name in `app/config/config.yml`:
+
+```yaml
+parameters:
+    b4rb4ross4.user.base_view: backend/base.html.twig
+```
+
+and require the bundle `config.yml` to get the twig variable:
+
+```yaml
+imports:
+    - { resource: "@B4rb4ross4UserBundle/Resources/config/config.yml" }
 ```
