@@ -1,0 +1,3 @@
+twig:
+    globals:
+      base_view: '%b4rb4ross4.user.base_view%'
