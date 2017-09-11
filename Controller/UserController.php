@@ -43,7 +43,7 @@ class UserController extends Controller
     $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN');
 
     $user = new User();
-    $form = $this->createForm('UserBundle\Form\UserRegistrationType', $user);
+    $form = $this->createForm('B4rb4ross4\UserBundle\Form\UserRegistrationType', $user);
     $form->handleRequest($request);
 
     if ($form->isSubmitted() && $form->isValid()) {
@@ -114,7 +114,7 @@ class UserController extends Controller
   {
     $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN');
 
-    $form = $this->createForm('UserBundle\Form\UserType', $user);
+    $form = $this->createForm('B4rb4ross4\UserBundle\Form\UserType', $user);
     $form->handleRequest($request);
 
     if ($form->isSubmitted() && $form->isValid()) {
