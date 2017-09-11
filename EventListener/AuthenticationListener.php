@@ -52,7 +52,7 @@ class AuthenticationListener implements EventSubscriberInterface
 
     $em=$this->container->get('doctrine.orm.entity_manager');
     /** @var UserRepository $repo */
-    $repo = $em->getRepository('UserBundle:User');
+    $repo = $em->getRepository('B4rb4ross4UserBundle:User');
     $user = $repo->loadUserByUsername($userName);
 
     if($user !== null)
