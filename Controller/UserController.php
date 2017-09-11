@@ -6,7 +6,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use UserBundle\Form\UserType;
 
 /**
  * User controller.
@@ -180,7 +179,10 @@ class UserController extends Controller
 
     if(!empty($error))
     {
-      $request->getSession()->setFlash('error', $error->getMessage());
+      $this->addFlash(
+        'error',
+        $error->getMessage()
+      );
     }
 
     return $this->render(
