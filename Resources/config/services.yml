@@ -3,7 +3,7 @@ services:
 #        class: UserBundle\Example
 #        arguments: ["@service_id", "plain_value", %parameter%]
     user.security.authentication_event_listener:
-        class: UserBundle\EventListener\AuthenticationListener
+        class: B4rb4ross4\UserBundle\EventListener\AuthenticationListener
         arguments: ['@service_container']
         tags:
             - { name: kernel.event_subscriber }
