@@ -426,7 +426,7 @@ class User implements AdvancedUserInterface
    *
    * @return User
    */
-  public function setLastLoginAttempt(\DateTime $lastLoginAttempt) : User
+  public function setLastLoginAttempt(\DateTime $lastLoginAttempt = null) : User
   {
     $this->lastLoginAttempt = $lastLoginAttempt;
 
@@ -522,7 +522,7 @@ class User implements AdvancedUserInterface
      *
      * @return User
      */
-    public function setExpiredAt(\DateTime $expiredAt) : User
+    public function setExpiredAt(\DateTime $expiredAt = null) : User
     {
         $this->expiredAt = $expiredAt;
 
@@ -546,7 +546,7 @@ class User implements AdvancedUserInterface
      *
      * @return User
      */
-    public function setCredentialsExpiredAt(\DateTime $credentialsExpiredAt) : User
+    public function setCredentialsExpiredAt(\DateTime $credentialsExpiredAt = null) : User
     {
         $this->credentialsExpiredAt = $credentialsExpiredAt;
 
