@@ -75,15 +75,15 @@ class UserController extends Controller
 
       $this->addFlash(
         'success',
-        'Registration successful. You must now be activated by an admin'
+        'User successfully created.'
       );
 
-      return $this->redirectToRoute('b4rb4ross4_', array('id' => $user->getId()));
+      return $this->redirectToRoute('b4rb4ross4_user_show', array('id' => $user->getId()));
     }
 
     $this->get('twig')->addGlobal('submenuEntries', $this->submenuEntries());
 
-    return $this->render('B4rb4ross4UserBundle:User:register.html.twig', array(
+    return $this->render('B4rb4ross4UserBundle:User:create.html.twig', array(
       'user' => $user,
       'form' => $form->createView(),
     ));
@@ -150,7 +150,7 @@ class UserController extends Controller
         'User successfully saved.'
       );
 
-      return $this->redirectToRoute('b4rb4ross4_', array('id' => $user->getId()));
+      return $this->redirectToRoute('b4rb4ross4_user_show', array('id' => $user->getId()));
     }
 
     $this->get('twig')->addGlobal('submenuEntries', $this->submenuEntries());
