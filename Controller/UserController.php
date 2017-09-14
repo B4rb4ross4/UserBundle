@@ -36,7 +36,7 @@ class UserController extends Controller
 
     $em = $this->getDoctrine()->getManager();
 
-    $users = $em->getRepository('UserBundle:User')->findAll();
+    $users = $em->getRepository('B4rb4ross4UserBundle:User')->findAll();
 
     $this->get('twig')->addGlobal('submenuEntries', $this->submenuEntries());
 
