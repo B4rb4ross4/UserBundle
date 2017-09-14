@@ -76,7 +76,7 @@ class UserController extends Controller
         'Registration successful. You must now be activated by an admin'
       );
 
-      return $this->redirectToRoute('user_show', array('id' => $user->getId()));
+      return $this->redirectToRoute('b4rb4ross4_', array('id' => $user->getId()));
     }
 
     $this->get('twig')->addGlobal('submenuEntries', $this->submenuEntries());
@@ -148,7 +148,7 @@ class UserController extends Controller
         'User successfully saved.'
       );
 
-      return $this->redirectToRoute('user_show', array('id' => $user->getId()));
+      return $this->redirectToRoute('b4rb4ross4_', array('id' => $user->getId()));
     }
 
     $this->get('twig')->addGlobal('submenuEntries', $this->submenuEntries());
