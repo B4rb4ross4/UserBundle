@@ -2,6 +2,7 @@
 
 namespace B4rb4ross4\UserBundle\Form;
 
+use B4rb4ross4\UserBundle\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
@@ -37,7 +38,7 @@ class UserType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'B4rb4ross4\UserBundle\Entity\User'
+            'data_class' => User::class
         ));
     }
 }

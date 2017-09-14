@@ -2,6 +2,8 @@
 namespace B4rb4ross4\UserBundle\Controller;
 
 use B4rb4ross4\UserBundle\Entity\User;
+use B4rb4ross4\UserBundle\Form\UserRegistrationType;
+use B4rb4ross4\UserBundle\Form\UserType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -56,7 +58,7 @@ class UserController extends Controller
     $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN');
 
     $user = new User();
-    $form = $this->createForm('B4rb4ross4\UserBundle\Form\UserRegistrationType', $user);
+    $form = $this->createForm(UserRegistrationType::class, $user);
     $form->handleRequest($request);
 
     if ($form->isSubmitted() && $form->isValid()) {
@@ -133,7 +135,7 @@ class UserController extends Controller
   {
     $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN');
 
-    $form = $this->createForm('B4rb4ross4\UserBundle\Form\UserType', $user);
+    $form = $this->createForm(UserType::class, $user);
     $form->handleRequest($request);
 
     if ($form->isSubmitted() && $form->isValid()) {
