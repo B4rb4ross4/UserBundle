@@ -225,6 +225,8 @@ class User implements AdvancedUserInterface
   public function setPlainPassword(string $password) : User
   {
     $this->plainPassword = $password;
+
+    return $this;
   }
 
   /**
