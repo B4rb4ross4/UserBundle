@@ -38,9 +38,10 @@ class UserController extends Controller
 
     $users = $em->getRepository('UserBundle:User')->findAll();
 
+    $this->get('twig')->addGlobal('submenuEntries', $this->submenuEntries());
+
     return $this->render('B4rb4ross4UserBundle:User:index.html.twig', array(
       'users' => $users,
-      'submenuEntries' => $this->submenuEntries(),
     ));
   }
 
@@ -78,10 +79,11 @@ class UserController extends Controller
       return $this->redirectToRoute('user_show', array('id' => $user->getId()));
     }
 
+    $this->get('twig')->addGlobal('submenuEntries', $this->submenuEntries());
+
     return $this->render('B4rb4ross4UserBundle:User:register.html.twig', array(
       'user' => $user,
       'form' => $form->createView(),
-      'submenuEntries' => $this->submenuEntries(),
     ));
   }
 
@@ -97,9 +99,10 @@ class UserController extends Controller
 
     $user = $this->getUser();
 
+    $this->get('twig')->addGlobal('submenuEntries', $this->submenuEntries());
+
     return $this->render('B4rb4ross4UserBundle:User:show.html.twig', array(
       'user' => $user,
-      'submenuEntries' => $this->submenuEntries(),
     ));
   }
 
@@ -113,9 +116,10 @@ class UserController extends Controller
   {
     $this->denyAccessUnlessGranted('ROLE_ADMIN');
 
+    $this->get('twig')->addGlobal('submenuEntries', $this->submenuEntries());
+
     return $this->render('B4rb4ross4UserBundle:User:show.html.twig', array(
       'user' => $user,
-      'submenuEntries' => $this->submenuEntries(),
     ));
   }
 
@@ -147,10 +151,11 @@ class UserController extends Controller
       return $this->redirectToRoute('user_show', array('id' => $user->getId()));
     }
 
+    $this->get('twig')->addGlobal('submenuEntries', $this->submenuEntries());
+
     return $this->render('B4rb4ross4UserBundle:User:edit.html.twig', array(
       'user' => $user,
       'form' => $form->createView(),
-      'submenuEntries' => $this->submenuEntries(),
     ));
   }
 
