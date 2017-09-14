@@ -40,6 +40,7 @@ class UserController extends Controller
 
     return $this->render('B4rb4ross4UserBundle:User:index.html.twig', array(
       'users' => $users,
+      'submenuEntries' => $this->submenuEntries(),
     ));
   }
 
@@ -80,6 +81,7 @@ class UserController extends Controller
     return $this->render('B4rb4ross4UserBundle:User:register.html.twig', array(
       'user' => $user,
       'form' => $form->createView(),
+      'submenuEntries' => $this->submenuEntries(),
     ));
   }
 
@@ -96,7 +98,8 @@ class UserController extends Controller
     $user = $this->getUser();
 
     return $this->render('B4rb4ross4UserBundle:User:show.html.twig', array(
-      'user' => $user
+      'user' => $user,
+      'submenuEntries' => $this->submenuEntries(),
     ));
   }
 
@@ -111,7 +114,8 @@ class UserController extends Controller
     $this->denyAccessUnlessGranted('ROLE_ADMIN');
 
     return $this->render('B4rb4ross4UserBundle:User:show.html.twig', array(
-      'user' => $user
+      'user' => $user,
+      'submenuEntries' => $this->submenuEntries(),
     ));
   }
 
@@ -146,6 +150,7 @@ class UserController extends Controller
     return $this->render('B4rb4ross4UserBundle:User:edit.html.twig', array(
       'user' => $user,
       'form' => $form->createView(),
+      'submenuEntries' => $this->submenuEntries(),
     ));
   }
 
@@ -168,7 +173,7 @@ class UserController extends Controller
       $em->flush();
     }
 
-    return $this->redirectToRoute('user_index');
+    return $this->redirectToRoute('b4rb4ross_user_list');
   }
 
   /**
