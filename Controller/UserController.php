@@ -13,6 +13,17 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
  */
 class UserController extends Controller
 {
+
+  public function submenuEntries()
+  {
+      return [
+        'b4rb4ross4_user_profile' => 'Profil',
+        'b4rb4ross4_user_list' => 'Benutzerübersicht',
+        'b4rb4ross4_user_create' => 'Benutzer erstellen',
+        'b4rb4ross4_user_logout' => 'Ausloggen',
+      ];
+  }
+
   /**
    * Lists all User entities.
    *
@@ -35,7 +46,7 @@ class UserController extends Controller
   /**
    * Creates a new User entity.
    *
-   * @Route("/user/register", name="b4rb4ross4_user_register")
+   * @Route("/user/create", name="b4rb4ross4_user_create")
    * @Method({"GET", "POST"})
    */
   public function newAction(Request $request)
