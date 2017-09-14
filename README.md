@@ -43,7 +43,7 @@ class AppKernel extends Kernel
 }
 ```
 
-Step 2: Configure the Bundle
+Step 3: Configure the Bundle your bundle inside your app.
 ----------------------------
 
 Add the routes to your `app/config/routing.yml`:
@@ -56,6 +56,9 @@ b4rb4ross4_user:
 ```
 
 At last you must change your `app/config/security.yml` settings:
+
+The login route id is: b4rb4ross4_user_login
+The logout route id is: b4rb4ross4_user_logout
 
 ```yaml
 firewalls:
