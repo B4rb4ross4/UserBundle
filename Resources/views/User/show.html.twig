@@ -1,84 +1,84 @@
 {% extends base_view %}
 
 {% block title %}
-    Show User
+  {% trans %}user.show.title{% endtrans %}
 {% endblock %}
 
 {% block body %}
-    <h1>User</h1>
+    <h1>{% trans %}user.show.title{% endtrans %}</h1>
 
     <table class="table table-responsive table-condensed">
         <tbody>
             <tr>
-                <th>Id</th>
+                <th>{% trans %}user.entity.id{% endtrans %}</th>
                 <td>{{ user.id }}</td>
             </tr>
             <tr>
-                <th>Username</th>
+                <th>{% trans %}user.entity.username{% endtrans %}</th>
                 <td>{{ user.username }}</td>
             </tr>
             <tr>
-                <th>Email</th>
+                <th>{% trans %}user.entity.email{% endtrans %}</th>
                 <td>{{ user.email }}</td>
             </tr>
             <tr>
-                <th>Active</th>
+                <th>{% trans %}user.entity.is_active{% endtrans %}</th>
                 <td>{% if user.isActive %}Yes{% else %}No{% endif %}</td>
             </tr>
             <tr>
-                <th>Disabled At</th>
+                <th>{% trans %}user.entity.disabled_at{% endtrans %}</th>
                 <td>{% if user.disabledAt %}{{ user.disabledAt|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
             <tr>
-                <th>Expired</th>
+                <th>{% trans %}user.entity.expired{% endtrans %}</th>
                 <td>{% if user.isExpired %}Yes{% else %}No{% endif %}</td>
             </tr>
             <tr>
-                <th>Expired At</th>
+                <th>{% trans %}user.entity.expired_at{% endtrans %}</th>
                 <td>{% if user.expiredAt %}{{ user.expiredAt|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
             <tr>
-                <th>Locked</th>
+                <th>{% trans %}user.entity.locked{% endtrans %}</th>
                 <td>{% if user.isLocked %}Yes{% else %}No{% endif %}</td>
             </tr>
             <tr>
-                <th>Locked At</th>
+                <th>{% trans %}user.entity.locked_at{% endtrans %}</th>
                 <td>{% if user.lockedAt %}{{ user.lockedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
             <tr>
-                <th>Credentials expired</th>
+                <th>{% trans %}user.entity.is_credentials_expired{% endtrans %}</th>
                 <td>{% if user.isCredentialsExpired %}Yes{% else %}No{% endif %}</td>
             </tr>
             <tr>
-                <th>Credentials Expired At</th>
+                <th>{% trans %}user.entity.credentials_expired_at{% endtrans %}</th>
                 <td>{% if user.credentialsExpiredAt %}{{ user.credentialsExpiredAt|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
             <tr>
-                <th>Last Login At</th>
+                <th>{% trans %}user.entity.last_login_at{% endtrans %}</th>
                 <td>{% if user.lastLoginAt %}{{ user.lastLoginAt|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
             <tr>
-                <th>Registered At</th>
+                <th>{% trans %}user.entity.registered_at{% endtrans %}</th>
                 <td>{% if user.registeredAt %}{{ user.registeredAt|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
             <tr>
-                <th>Updated At</th>
+                <th>{% trans %}user.entity.updated_at{% endtrans %}</th>
                 <td>{% if user.updatedAt %}{{ user.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
             <tr>
-                <th>Login Attempts</th>
+                <th>{% trans %}user.entity.login_attempts{% endtrans %}</th>
                 <td>{{ user.loginAttempts }}</td>
             </tr>
             <tr>
-                <th>Last Login Attempt</th>
+                <th>{% trans %}user.entity.last_login_attempt{% endtrans %}</th>
                 <td>{% if user.lastLoginAttempt %}{{ user.lastLoginAttempt|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
         </tbody>
     </table>
 
     {% if is_granted('ROLE_SUPER_ADMIN') %}
-        <a href="{{ path('b4rb4ross4_user_list') }}" class="btn btn-default">Back to the list</a>
-        <a href="{{ path('b4rb4ross4_user_edit', { 'id': user.id }) }}" class="btn btn-default">Edit</a>
+        <a href="{{ path('b4rb4ross4_user_list') }}" class="btn btn-default">{% trans %}user.action.back_to_list{% endtrans %}</a>
+        <a href="{{ path('b4rb4ross4_user_edit', { 'id': user.id }) }}" class="btn btn-default">{% trans %}user.action.edit{% endtrans %}</a>
     {% endif %}
 
 {% endblock %}

@@ -1,11 +1,15 @@
 {% extends base_view %}
 
-{% block body %}
-    <h1>User edit</h1>
+{% block title %}
+  {% trans %}user.edit.title{% endtrans %}
+{% endblock %}
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <a href="{{ path('b4rb4ross4_user_list') }}" class="btn btn-default">Cancel</a>
-        <button type="submit" class="btn btn-default">Save</button>
-    {{ form_end(form) }}
+{% block body %}
+  <h1>{% trans %}user.edit.title{% endtrans %}</h1>
+
+  {{ form_start(form) }}
+  {{ form_widget(form) }}
+  <a href="{{ path('b4rb4ross4_user_list') }}" class="btn btn-default">{% trans %}user.action.cancel{% endtrans %}</a>
+  <button type="submit" class="btn btn-default">{% trans %}user.action.save{% endtrans %}</button>
+  {{ form_end(form) }}
 {% endblock %}
