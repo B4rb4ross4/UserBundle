@@ -1,4 +1,5 @@
 <?php
+
 namespace B4rb4ross4\UserBundle\Controller;
 
 use B4rb4ross4\UserBundle\Entity\User;
@@ -8,6 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Translation\Translator;
 
 /**
  * User controller.
@@ -18,12 +20,15 @@ class UserController extends Controller
 
   public function submenuEntries()
   {
-      return [
-        'b4rb4ross4_user_profile' => 'Profil',
-        'b4rb4ross4_user_list' => 'Benutzerübersicht',
-        'b4rb4ross4_user_create' => 'Benutzer erstellen',
-        'b4rb4ross4_user_logout' => 'Ausloggen',
-      ];
+    /** @var Translator $t */
+    $t = $this->get('translator');
+
+    return [
+      'b4rb4ross4_user_profile' => $t->trans('user.profile'),
+      'b4rb4ross4_user_list' => $t->trans('user.index.title'),
+      'b4rb4ross4_user_create' => $t->trans('user.create.title'),
+      'b4rb4ross4_user_logout' => $t->trans('user.action.log_out'),
+    ];
   }
 
   /**
@@ -57,6 +62,9 @@ class UserController extends Controller
   {
     $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN');
 
+    /** @var Translator $t */
+    $t = $this->get('translator');
+
     $user = new User();
     $form = $this->createForm(UserRegistrationType::class, $user);
     $form->handleRequest($request);
@@ -64,7 +72,7 @@ class UserController extends Controller
     if ($form->isSubmitted() && $form->isValid()) {
 
       $password = $this->get('security.password_encoder')
-                       ->encodePassword($user, $user->getPlainPassword());
+        ->encodePassword($user, $user->getPlainPassword());
       $user->setPassword($password);
       $user->setRegisteredAt(new \DateTime());
       $user->addRole('ROLE_USER');
@@ -75,7 +83,7 @@ class UserController extends Controller
 
       $this->addFlash(
         'success',
-        'User successfully created.'
+        $t->trans('user.action.create.success')
       );
 
       return $this->redirectToRoute('b4rb4ross4_user_show', array('id' => $user->getId()));
@@ -135,6 +143,9 @@ class UserController extends Controller
   {
     $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN');
 
+    /** @var Translator $t */
+    $t = $this->get('translator');
+
     $form = $this->createForm(UserType::class, $user);
     $form->handleRequest($request);
 
@@ -147,7 +158,7 @@ class UserController extends Controller
 
       $this->addFlash(
         'success',
-        'User successfully saved.'
+        $t->trans('user.action.edit.success')
       );
 
       return $this->redirectToRoute('b4rb4ross4_user_show', array('id' => $user->getId()));
@@ -200,8 +211,7 @@ class UserController extends Controller
     // last username entered by the user
     $lastUsername = $authenticationUtils->getLastUsername();
 
-    if(!empty($error))
-    {
+    if (!empty($error)) {
       $this->addFlash(
         'error',
         $error->getMessage()
@@ -240,8 +250,8 @@ class UserController extends Controller
     $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN');
 
     return $this->createFormBuilder()
-                ->setAction($this->generateUrl('user_delete', array('id' => $user->getId())))
-                ->setMethod('DELETE')
-                ->getForm();
+      ->setAction($this->generateUrl('user_delete', array('id' => $user->getId())))
+      ->setMethod('DELETE')
+      ->getForm();
   }
 }
