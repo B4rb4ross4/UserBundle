@@ -236,7 +236,7 @@ class User implements AdvancedUserInterface
    *
    * @return User
    */
-  public function setEmail(string $email) : User
+  public function setEmail(string $email = null) : User
   {
     $this->email = $email;
 
@@ -452,7 +452,7 @@ class User implements AdvancedUserInterface
    *
    * @return User
    */
-  public function setDisabledAt(\DateTime $disabledAt) : User
+  public function setDisabledAt(\DateTime $disabledAt = null) : User
   {
     $this->disabledAt = $disabledAt;
 
