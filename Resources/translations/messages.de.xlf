@@ -102,6 +102,10 @@
                 <source>user.action.login</source>
                 <target>einloggen</target>
             </trans-unit>
+            <trans-unit id="user.action.logout">
+                <source>user.action.logout</source>
+                <target>ausloggen</target>
+            </trans-unit>
             <trans-unit id="user.action.cancel">
                 <source>user.action.cancel</source>
                 <target>abbrechen</target>

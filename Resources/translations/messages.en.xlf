@@ -100,7 +100,11 @@
             </trans-unit>
             <trans-unit id="user.action.login">
                 <source>user.action.login</source>
-                <target>Login</target>
+                <target>Log in</target>
+            </trans-unit>
+            <trans-unit id="user.action.logout">
+                <source>user.action.logout</source>
+                <target>Log out</target>
             </trans-unit>
             <trans-unit id="user.action.cancel">
                 <source>user.action.cancel</source>
