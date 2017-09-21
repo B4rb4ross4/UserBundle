@@ -22,6 +22,10 @@
                 <source>user.show.title</source>
                 <target>Benutzerdetails</target>
             </trans-unit>
+            <trans-unit id="user.profile">
+                <source>user.profile</source>
+                <target>Benutzerprofil</target>
+            </trans-unit>
             <trans-unit id="user.entity.id">
                 <source>user.entity.id</source>
                 <target>Id</target>
