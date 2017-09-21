@@ -27,7 +27,7 @@ class UserController extends Controller
       'b4rb4ross4_user_profile' => $t->trans('user.profile'),
       'b4rb4ross4_user_list' => $t->trans('user.index.title'),
       'b4rb4ross4_user_create' => $t->trans('user.create.title'),
-      'b4rb4ross4_user_logout' => $t->trans('user.action.log_out'),
+      'b4rb4ross4_user_logout' => $t->trans('user.action.logout'),
     ];
   }
 
