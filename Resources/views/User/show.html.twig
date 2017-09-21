@@ -23,7 +23,7 @@
             </tr>
             <tr>
                 <th>{% trans %}user.entity.is_active{% endtrans %}</th>
-                <td>{% if user.isActive %}Yes{% else %}No{% endif %}</td>
+                <td>{% if user.isActive %}{% trans %}user.yes{% endtrans %}{% else %}{% trans %}user.no{% endtrans %}{% endif %}</td>
             </tr>
             <tr>
                 <th>{% trans %}user.entity.disabled_at{% endtrans %}</th>
@@ -31,7 +31,7 @@
             </tr>
             <tr>
                 <th>{% trans %}user.entity.expired{% endtrans %}</th>
-                <td>{% if user.isExpired %}Yes{% else %}No{% endif %}</td>
+                <td>{% if user.isExpired %}{% trans %}user.yes{% endtrans %}{% else %}{% trans %}user.no{% endtrans %}{% endif %}</td>
             </tr>
             <tr>
                 <th>{% trans %}user.entity.expired_at{% endtrans %}</th>
@@ -39,7 +39,7 @@
             </tr>
             <tr>
                 <th>{% trans %}user.entity.locked{% endtrans %}</th>
-                <td>{% if user.isLocked %}Yes{% else %}No{% endif %}</td>
+                <td>{% if user.isLocked %}{% trans %}user.yes{% endtrans %}{% else %}{% trans %}user.no{% endtrans %}{% endif %}</td>
             </tr>
             <tr>
                 <th>{% trans %}user.entity.locked_at{% endtrans %}</th>
@@ -47,7 +47,7 @@
             </tr>
             <tr>
                 <th>{% trans %}user.entity.is_credentials_expired{% endtrans %}</th>
-                <td>{% if user.isCredentialsExpired %}Yes{% else %}No{% endif %}</td>
+                <td>{% if user.isCredentialsExpired %}{% trans %}user.yes{% endtrans %}{% else %}{% trans %}user.no{% endtrans %}{% endif %}</td>
             </tr>
             <tr>
                 <th>{% trans %}user.entity.credentials_expired_at{% endtrans %}</th>

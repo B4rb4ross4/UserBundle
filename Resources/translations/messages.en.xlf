@@ -118,6 +118,14 @@
                 <source>user.action.edit</source>
                 <target>Edit</target>
             </trans-unit>
+            <trans-unit id="user.yes">
+                <source>user.yes</source>
+                <target>Yes</target>
+            </trans-unit>
+            <trans-unit id="user.no">
+                <source>user.no</source>
+                <target>No</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
