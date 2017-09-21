@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" target-language="de" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="user.create.title">
+                <source>user.create.title</source>
+                <target>Benutzer erstellen</target>
+            </trans-unit>
+            <trans-unit id="user.edit.title">
+                <source>user.edit.title</source>
+                <target>Benutzer bearbeiten</target>
+            </trans-unit>
+            <trans-unit id="user.index.title">
+                <source>user.index.title</source>
+                <target>Benutzerübersicht</target>
+            </trans-unit>
+            <trans-unit id="user.login.title">
+                <source>user.login.title</source>
+                <target>Login</target>
+            </trans-unit>
+            <trans-unit id="user.show.title">
+                <source>user.show.title</source>
+                <target>Benutzerdetails</target>
+            </trans-unit>
+            <trans-unit id="user.entity.id">
+                <source>user.entity.id</source>
+                <target>Id</target>
+            </trans-unit>
+            <trans-unit id="user.entity.username">
+                <source>user.entity.username</source>
+                <target>Benutzername</target>
+            </trans-unit>
+            <trans-unit id="user.entity.password">
+                <source>user.entity.password</source>
+                <target>Passwort</target>
+            </trans-unit>
+            <trans-unit id="user.entity.email">
+                <source>user.entity.email</source>
+                <target>Email Adresse</target>
+            </trans-unit>
+            <trans-unit id="user.entity.is_active">
+                <source>user.entity.is_active</source>
+                <target>Aktiviert?</target>
+            </trans-unit>
+            <trans-unit id="user.entity.disabled_at">
+                <source>user.entity.disabled_at</source>
+                <target>Deaktiviert am</target>
+            </trans-unit>
+            <trans-unit id="user.entity.is_expired">
+                <source>user.entity.is_expired</source>
+                <target>Ausgelaufen?</target>
+            </trans-unit>
+            <trans-unit id="user.entity.expired_at">
+                <source>user.entity.expired_at</source>
+                <target>Ausgelaufen am</target>
+            </trans-unit>
+            <trans-unit id="user.entity.locked">
+                <source>user.entity.locked</source>
+                <target>Gesperrt?</target>
+            </trans-unit>
+            <trans-unit id="user.entity.locked_at">
+                <source>user.entity.locked_at</source>
+                <target>Gesperrt am</target>
+            </trans-unit>
+            <trans-unit id="user.entity.is_credentials_expired">
+                <source>user.entity.is_credentials_expired</source>
+                <target>Zugangsdaten abgelaufen?</target>
+            </trans-unit>
+            <trans-unit id="user.entity.credentials_expired_at">
+                <source>user.entity.credentials_expired_at</source>
+                <target>Ausgelaufen am</target>
+            </trans-unit>
+            <trans-unit id="user.entity.last_login_at">
+                <source>user.entity.last_login_at</source>
+                <target>Letzter Login</target>
+            </trans-unit>
+            <trans-unit id="user.entity.registered_at">
+                <source>user.entity.registered_at</source>
+                <target>Registriert am</target>
+            </trans-unit>
+            <trans-unit id="user.entity.updated_at">
+                <source>user.entity.updated_at</source>
+                <target>Letzte Bearbeitung</target>
+            </trans-unit>
+            <trans-unit id="user.entity.login_attempts">
+                <source>user.entity.login_attempts</source>
+                <target>Loginversuche</target>
+            </trans-unit>
+            <trans-unit id="user.entity.last_login_attempt">
+                <source>user.entity.last_login_attempt</source>
+                <target>Letzter Login Versuch</target>
+            </trans-unit>
+            <trans-unit id="user.actions">
+                <source>user.actions</source>
+                <target/>
+            </trans-unit>
+            <trans-unit id="user.action.create">
+                <source>user.action.create</source>
+                <target>erstellen</target>
+            </trans-unit>
+            <trans-unit id="user.action.login">
+                <source>user.action.login</source>
+                <target>einloggen</target>
+            </trans-unit>
+            <trans-unit id="user.action.cancel">
+                <source>user.action.cancel</source>
+                <target>abbrechen</target>
+            </trans-unit>
+            <trans-unit id="user.action.save">
+                <source>user.action.save</source>
+                <target>speichern</target>
+            </trans-unit>
+            <trans-unit id="user.action.back_to_list">
+                <source>user.action.back_to_list</source>
+                <target>Zurück zur Übersicht</target>
+            </trans-unit>
+            <trans-unit id="user.action.edit">
+                <source>user.action.edit</source>
+                <target>bearbeiten</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
